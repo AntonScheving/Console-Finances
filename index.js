@@ -89,6 +89,9 @@ let finances = [
 
 let numberOfMonths = 0;
 let netTotal = 0;
+let totalChange = 0;
+let averageChange = 0;
+
 
 for (let i = 0; i < finances.length; i++) {
     numberOfMonths++;
@@ -96,7 +99,16 @@ for (let i = 0; i < finances.length; i++) {
     let profitLosses = finances[i][1];
 
     netTotal += profitLosses;
+
+    if (i === 0) continue;
+
+    let change = profitLosses - finances[i-1][1];
+
+    totalChange += change;
+
+    averageChange = totalChange / (numberOfMonths - 1);
 }
 
 console.log('Total number of months:', numberOfMonths);
 console.log('Net total: $' + netTotal);
+console.log('Average change: $' + averageChange);

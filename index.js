@@ -88,9 +88,15 @@ let finances = [
 ];
 
 let numberOfMonths = 0;
+let netTotal = 0;
 
 for (let i = 0; i < finances.length; i++) {
     numberOfMonths++;
+
+    let profitLosses = finances[i][1];
+
+    netTotal += profitLosses;
 }
 
 console.log('Total number of months:', numberOfMonths);
+console.log('Net total: $' + netTotal);
